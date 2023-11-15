@@ -11,4 +11,4 @@ complexity of different sorting algorithms.
 
 It's a fun exercise to look at the JDK code to see how they have implemented sorting. 
 
-See `java.util.Arrays`. 
+See `java.util.Arrays`
