@@ -1,5 +1,8 @@
 package org.bwg.algorithms;
 
+/**
+ * A merge sort implementation for Strings.
+ */
 public class MergeSort {
 
     public void sort(String[] array) {
@@ -44,6 +47,7 @@ public class MergeSort {
         // Initial index of merged subarray array
         int k = l;
         while (i < n1 && j < n2) {
+            // TODO handle casing better, consider making capital "A" come before "a" for example (Apple before apple)
             if (L[i].compareToIgnoreCase(R[j]) <= 0) {
                 arr[k] = L[i];
                 i++;
