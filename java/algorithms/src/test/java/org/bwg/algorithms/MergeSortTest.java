@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MergeSortTest {
 
-    MergeSort sorter = new MergeSort();
+    private final MergeSort sorter = new MergeSort();
 
     @Test
     void shouldThrowOnNullArray() {
