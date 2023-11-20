@@ -1,3 +1,9 @@
+/*
+ *
+ * Execute from a terminal:  node tower_breakers.js 4 8
+ *
+ */
+
 var args = process.argv.slice(2);
 
 var numberOfTowers = +args[0];
@@ -12,8 +18,8 @@ console.log("Winner is " + winner);
  *
  * The function is expected to return an INTEGER.
  * The function accepts following parameters:
- *  1. INTEGER n
- *  2. INTEGER m
+ *  1. INTEGER n - number of towers
+ *  2. INTEGER m - height of towers
  */
 
 function towerBreakers(n, m) {
