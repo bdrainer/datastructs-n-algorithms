@@ -6,10 +6,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Given a matrix calculate the difference between the diagonals.  The returned value should be the absolute value
+ * of the difference.
+ */
 public class DiagonalDifferenceTest {
 
     @Test
-    void shoudlFindDiagonalDifference() {
+    void shouldFindDiagonalDifference() {
         List<Integer> row1 = Arrays.asList(1,2,3);
         List<Integer> row2 = Arrays.asList(4,5,6);
         List<Integer> row3 = Arrays.asList(9,8,9);

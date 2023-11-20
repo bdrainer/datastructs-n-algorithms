@@ -8,6 +8,9 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * The exercise asks to find the unique value in an array.  There will only be one unique value.
+ */
 public class FindUniqueValueTest {
 
     @Test
