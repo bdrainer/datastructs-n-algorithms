@@ -22,17 +22,18 @@ public class TowerBreakerTest {
 
     @Test
     void shouldDetermineWhoWins() {
+        assertEquals(1, towerBreakers(3, 6));
         assertEquals(2, towerBreakers(2, 6));
-        assertEquals(2, towerBreakers(2, 6));
+        assertEquals(2, towerBreakers(2, 7));
     }
 
     /**
-     * @param n the number of towers
-     * @param m the height of each tower
-     * @return
+     * @param numberOfTowers the number of towers
+     * @param heightOfTower the height of each tower
+     * @return The winner, either 1 or 2
      */
-    private int towerBreakers(int n, int m) {
-        return (m == 1) || (n % 2 == 0)
+    private int towerBreakers(int numberOfTowers, int heightOfTower) {
+        return (heightOfTower == 1) || (numberOfTowers % 2 == 0)
                 ? 2 : 1;
     }
 }
