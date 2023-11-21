@@ -1,13 +1,20 @@
+/*
+ * Run in a terminal: node mergesort.js <space separated numbers representing the array'
+ * Example: node mergesort.js 4 3 2 1
+ */
+const sortMe = process.argv.slice(2);
+
+console.log("Unsorted: " + sortMe); 
+mergeSort(sortMe);
+console.log("Sorted: " + sortMe);
+
 
 function mergeSort(arr) { 
     sort(arr, 0, arr.length - 1); 
 }
 
-
 function sort(arr, left, right) { 
 	if (left < right) {         
-        
-        // let middle = left + parseInt((right - left) / 2); 
         let middle = parseInt( (left + right) / 2); 
 
         sort(arr, left, middle); 
@@ -18,7 +25,6 @@ function sort(arr, left, right) {
 } 
 
 function merge(arr, left, middle, right) { 
-	
 	let l1 = middle - left + 1; 
 	let l2 = right - middle; 
     
@@ -58,12 +64,3 @@ function merge(arr, left, middle, right) {
 		k++; 
 	} 
 } 
-
-// const sortMe = [77, 27, 17, 37];
-
-const sortMe = process.argv.slice(2);
-
-console.log("Unsorted: " + sortMe); 
-mergeSort(sortMe);
-
-console.log("Sorted: " + sortMe);
