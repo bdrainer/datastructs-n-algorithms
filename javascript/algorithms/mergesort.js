@@ -1,5 +1,5 @@
 /*
- * Run in a terminal: node mergesort.js <space separated numbers representing the array'
+ * Run in a terminal: node mergesort.js <space separated numbers representing the array>
  * Example: node mergesort.js 4 3 2 1
  */
 const sortMe = process.argv.slice(2);
