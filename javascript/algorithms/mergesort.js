@@ -38,9 +38,7 @@ function merge(arr, left, middle, right) {
 		arr2[i] = arr[middle + 1 + i]; 
 	} 
 
-	let i = 0, 
-		j = 0, 
-		k = left; 
+	let i = 0, j = 0, k = left; 
 		
 	while (i < l1 && j < l2) { 
 		if (arr1[i] < arr2[j]) { 
