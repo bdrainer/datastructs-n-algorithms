@@ -10,6 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LinkedHashMapTest {
 
+    @Test
+    void should_use_linked_hashmap_as_a_least_recently_used_cache() {
+
+    }
+
     /**
      * Use a LinkedHashNap and confirm the insertion order is maintained when iterating over the key set and entry set.
      */
