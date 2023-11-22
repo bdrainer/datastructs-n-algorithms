@@ -58,7 +58,7 @@ for i in range(n):
 
 mergeSort(sortMe)
 
-print("")
+print()
 print("Sorted:", end= " ")
 for i in range(n):
 	print("%d" % sortMe[i],end=" ")
