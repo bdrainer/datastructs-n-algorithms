@@ -17,33 +17,22 @@ public class PalindromeIndexTest {
 
     int palindromeIndex(String s) {
         int idx = 0;
-        String r = new StringBuilder(s).reverse().toString();
-        while (idx < s.length()) {
-            if (s.charAt(idx) != r.charAt(idx)) {
-
-                if (isPalindrom(replace(s, idx))) {
+        if (!isPalindrome(s)) {
+            while (idx < s.length()) {
+                if (isPalindrome(replace(s, idx))) {
                     return idx;
-                } else if (isPalindrom(replace(r, idx))) {
-                    return s.length() - 1 - idx;
                 }
+                idx++;
             }
-            idx++;
         }
         return -1;
     }
 
     String replace(String source, int idx) {
-        StringBuilder b = new StringBuilder();
-        for (int i = 0; i < source.length(); i++) {
-            if (i != idx) {
-                b.append(source.charAt(i));
-            }
-        }
-        return b.toString();
+        return new StringBuilder(source).deleteCharAt(idx).toString();
     }
 
-    boolean isPalindrom(String s) {
-        String r = new StringBuilder(s).reverse().toString();
-        return s.equals(r);
+    boolean isPalindrome(String s) {
+        return s.contentEquals(new StringBuilder(s).reverse());
     }
 }
