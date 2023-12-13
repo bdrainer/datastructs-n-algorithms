@@ -36,8 +36,8 @@ public class ZigZagTest {
         a[n - 1] = temp;
 
         int st = mid + 1;
-//        int ed = n - 1;
 
+//        int ed = n - 1;
         int ed = n - 2;
 
         while (st <= ed) {
@@ -46,8 +46,8 @@ public class ZigZagTest {
             a[ed] = temp;
             st = st + 1;
 
-            ed = ed + 1;
-//            ed = ed - 1;
+//            ed = ed + 1;
+            ed = ed - 1;
         }
         return a;
     }
