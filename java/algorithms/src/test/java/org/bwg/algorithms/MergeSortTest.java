@@ -31,6 +31,12 @@ class MergeSortTest {
     }
 
     @Test
+    void shouldSortEvenNumberOfLettersArray() {
+        sortAndAssert(
+                new String[]{"e", "d", "c", "b"},
+                new String[]{"b", "c", "d", "e"});
+    }
+    @Test
     void shouldSortLettersArray() {
         sortAndAssert(
                 new String[]{"e", "d", "c", "b", "a"},
