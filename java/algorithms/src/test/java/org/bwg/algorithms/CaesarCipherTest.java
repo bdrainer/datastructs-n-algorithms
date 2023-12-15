@@ -10,22 +10,34 @@ public class CaesarCipherTest {
 
     @Test
     void shouldWork() {
-//        runTest("a", 1);
-//        runTest("a", 2);
-//        runTest("a", 3);
-//        runTest("z", 1);
-//        runTest("z", 2);
-//        runTest("z", 3);
+        runTest("a", "a", 0);
+        runTest("a", "a", 26);
+        runTest("a", "a", 52);
+        runTest("b", "b", 0);
+        runTest("b", "b", 26);
+        runTest("b", "b", 52);
+        runTest("c", "c", 0);
+        runTest("c", "c", 26);
+        runTest("c", "c", 52);
+        runTest("x", "x", 0);
+        runTest("x", "x", 26);
+        runTest("x", "x", 52);
+        runTest("y", "y", 0);
+        runTest("y", "y", 26);
+        runTest("y", "y", 52);
+        runTest("z", "z", 0);
+        runTest("z", "z", 26);
+        runTest("z", "z", 52);
 
-        assertEquals("def", encode("abc", 3));
-        assertEquals("abc", encode("xyz", 3));
-        assertEquals("Wkhuh'v-d-vwdupdq", encode("There's-a-starman", 3));
+        runTest("def", "abc", 3);
+        runTest("abc", "xyz", 3);
+        runTest("Wkhuh'v-d-vwdupdq", "There's-a-starman", 3);
     }
 
-    void runTest(String source, int k) {
-        String encode = encode(source, k);
-        String decode = decode(encode, k);
-        System.out.println("Source: " + source + " | encode: " + encode + " | decode: " + decode);
+    void runTest(String expected, String value, int k) {
+        String encode = encode(value, k);
+        assertEquals(expected, encode);
+        assertEquals(value, decode(encode, k));
     }
 
     String encode(String s, int k) {
@@ -59,19 +71,13 @@ public class CaesarCipherTest {
     }
 
     String reverserShift(String source, String character, int k) {
-//        System.out.println("reverse character " + character);
         int idx = source.indexOf(character) - k;
         int modVal = Math.abs(source.length() + idx) % source.length();
 
-//        System.out.println("Reverse index = " + idx);
-//        System.out.println("Mod value = " + modVal);
-//        System.out.println("Character.at = " + (source.length() - modVal));
-
-        if (Math.abs(idx) > source.length()) {
+        if (modVal != 0 && Math.abs(idx) > source.length()) {
             return Character.toString(source.charAt((source.length() - modVal)));
         } else {
             return Character.toString(source.charAt(modVal));
         }
-
     }
 }
