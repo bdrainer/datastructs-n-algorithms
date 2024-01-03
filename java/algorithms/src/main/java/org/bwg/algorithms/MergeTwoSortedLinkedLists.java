@@ -6,6 +6,35 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.stream.IntStream;
 
+/**
+ * Merge two sorted linked lists.
+ * <p>
+ * Input format:
+ * <pre>
+ * t - the number of test cases
+ * n - length of first linked list
+ * next n lines contains the values for the first linked list, these values must be sorted
+ * m - length of second linked list
+ * next m lines contains the value for the second linked list, these values must be sorted
+ * </pre>
+ * </p>
+ * <p>
+ * Example input:
+ * <pre>
+ * 1 - one test case
+ * 3 - linked list 1 has 3 integers
+ * 1 - value 1 of linked list 1
+ * 2 - value 2 of linked list 1
+ * 3 - value 3 of linked list 1
+ * 2 - linked list 2 has 2 integers
+ * 3 - value 1 of linked list 2
+ * 4 - value 2 of linked list 2
+ * </pre>
+ * <p>
+ * Expected output
+ * <pre>1 2 3 3 4</pre>
+ * </p>
+ */
 public class MergeTwoSortedLinkedLists {
 
     public static void main(String[] args) throws IOException {
@@ -17,28 +46,12 @@ public class MergeTwoSortedLinkedLists {
                     if (tItr > 0) {
                         System.out.println();
                     }
-                    LinkedList<Integer> list1 = new LinkedList<>();
-                    LinkedList<Integer> list2 = new LinkedList<>();
 
                     int n = Integer.parseInt(bufferedReader.readLine().trim());
-
-                    IntStream.range(0, n).mapToObj(i -> {
-                                try {
-                                    return Integer.parseInt(bufferedReader.readLine());
-                                } catch (IOException ex) {
-                                    throw new RuntimeException(ex);
-                                }
-                            }).forEach(list1::add);
+                    LinkedList<Integer> list1 = readIntegers(bufferedReader, n);
 
                     n = Integer.parseInt(bufferedReader.readLine().trim());
-
-                    IntStream.range(0, n).mapToObj(i -> {
-                                try {
-                                    return Integer.parseInt(bufferedReader.readLine());
-                                } catch (IOException ex) {
-                                    throw new RuntimeException(ex);
-                                }
-                            }).forEach(list2::add);
+                    LinkedList<Integer> list2 = readIntegers(bufferedReader, n);
 
                     merge(list1, list2).forEach(val -> System.out.print(val + " "));
 
@@ -47,6 +60,24 @@ public class MergeTwoSortedLinkedLists {
                 }
             });
         }
+    }
+
+    /**
+     * Reads an integer from the input where eadh integer is on a newline.  The range defines the number of lines to
+     * read.
+     */
+    static LinkedList<Integer> readIntegers(BufferedReader bufferedReader, int range) {
+        LinkedList<Integer> list = new LinkedList<>();
+
+        IntStream.range(0, range).mapToObj(i -> {
+            try {
+                return Integer.parseInt(bufferedReader.readLine());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        }).forEach(list::add);
+
+        return list;
     }
 
     static LinkedList<Integer> merge(LinkedList<Integer> l1, LinkedList<Integer> l2) {
