@@ -4,6 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * I was asked how to swap two values.  The person specifically asked how to do it without using a third
+ * variable.  Their answer was to use XOR, but I am still unsure how to do that without a third variable.
+ * XOR
+ */
 public class SwapTwoVariablesTest {
 
     private static final int THREE = 3;
@@ -17,6 +22,11 @@ public class SwapTwoVariablesTest {
         int a = THREE, b = SEVEN;
         assertEquals(SEVEN, (a ^ (a ^ b)));
         assertEquals(THREE, (b ^ (a ^ b)));
+
+        char y = 'y', z = 'z';
+
+        assertEquals('z', (y ^ (y ^ z)));
+        assertEquals('y', (z ^ (z ^ y)));
     }
 
     /**
