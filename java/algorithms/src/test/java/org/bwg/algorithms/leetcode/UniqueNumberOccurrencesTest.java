@@ -18,12 +18,9 @@ public class UniqueNumberOccurrencesTest {
     }
 
     public boolean uniqueOccurrences(int[] arr) {
-        final int zero = 0;
-        final int one = 1;
-
         Map<Integer, Integer> map = new HashMap<>();
         for (Integer num : arr) {
-            map.put(num, map.getOrDefault(num, zero) + one);
+            map.merge(num, 1, Integer::sum);
         }
 
         Set<Integer> counts = new HashSet<>();
